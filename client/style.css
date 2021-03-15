@@ -1,0 +1,32 @@
+html, body {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+}
+*, *::before, *::after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  background-color: brown;
+}
+.sidebar {
+  height: 100%;
+  padding-left: 2.5vw;
+  padding-right: 2.5vw;
+  padding-bottom: 5vh;
+  border-right: rgba(0, 0, 0, 0.7) solid 2px;
+  text-align: end;
+  writing-mode: vertical-lr;
+  text-orientation: upright;
+}
+.header {
+}

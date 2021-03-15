@@ -9,7 +9,7 @@ const PORT = process.env.NODE_ENV === 'production' ? process.env.PORT : process.
 const server = http.createServer((req, res) => {
   console.log(req.url);
 
-  let file_path = path.resolve(__dirname, req.url === '/' ? 'client/html/index.html' : 'dist/bundle.js');
+  let file_path = path.resolve(__dirname, req.url === '/' ? 'client/index.html' : req.url);
   console.log(file_path);
   const extname = path.extname(file_path);
   let contentType = null;

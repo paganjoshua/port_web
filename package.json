@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "cross-env NODE_ENV=production node server.js",
-    "dev": "cross-env NODE_ENV=development webpack serve --open --hot & nodemon server.js",
+    "dev": "cross-env NODE_ENV=development webpack serve --open --hot --progress --watch-content-base & nodemon server.js",
     "build": "cross-env NODE_ENV=production webpack"
   },
   "repository": {
@@ -21,6 +21,8 @@
   "homepage": "https://github.com/paganjoshua/port_web#readme",
   "devDependencies": {
     "@babel/core": "^7.13.10",
+    "@babel/plugin-proposal-class-properties": "^7.13.0",
+    "@babel/plugin-transform-react-jsx": "^7.12.17",
     "@babel/preset-env": "^7.13.10",
     "@babel/preset-react": "^7.12.13",
     "babel-loader": "^8.2.2",

@@ -16,13 +16,16 @@ module.exports = {
   },
   mode: process.env.NODE_ENV,
   devServer: {
-    contentBase: path.join(__dirname, 'client/html'),
+    contentBase: path.join(__dirname, 'client'),
     compress: true,
     port: process.env.WPDS_PORT,
-    proxy: {
-      '/dist/bundle.js': 'http://localhost:8080'
-    },
-    publicPath: './dist',
+    // proxy: {
+    //   '/': `http://localhost:${process.env.DEV_PORT}`
+    // },
+    publicPath: '/dist/',
+    watchOptions: {
+      poll: 1000
+    }
   },
   plugins,
   module: {
@@ -32,9 +35,9 @@ module.exports = {
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
-          options: {
-            presets: ['@babel/preset-env', '@babel/preset-react']
-          }
+          // options: {
+          //   presets: ['@babel/preset-env', '@babel/preset-react']
+          // }
         }
       },
       {
