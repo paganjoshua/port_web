@@ -7,7 +7,7 @@ const SVG = () => {
     setTimeout(() => {
       const wiz = 'wizbiz';
       index === 6 ? setText({ text: text, index: 0 }) : setText({text: text + wiz[index], index: index + 1 });
-    }, 20);
+    }, 10);
   }, [grow]);
   const svgns = "http://www.w3.org/2000/svg";
 

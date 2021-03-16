@@ -1,7 +1,9 @@
 const Logos = () => {
   return(
     <div className="logos" >
-      <img id="github" src="../../assets/GitHub-Mark/PNG/GitHub-Mark-32px.png" ></img>
+      <a href="https://github.com/paganjoshua" >
+        <img id="github" src="../../assets/GitHub-Mark/PNG/GitHub-Mark-32px.png" ></img>
+      </a>
     </div>
   )
 }
