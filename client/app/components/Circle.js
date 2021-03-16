@@ -1,9 +1,10 @@
-
+import SVG from './SVG';
 
 const Circle = () => {
   return(
     <div className="circle-container" >
-      <div className="circle" ></div>
+      <SVG  />
+      {/* <div className="circle" ></div> */}
     </div>
   )
 }
