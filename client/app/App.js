@@ -1,11 +1,11 @@
 import Sidebar from './components/Sidebar'
-import Header from './components/Logos';
+import Circle from './components/Circle';
 
 const App = () => {
   return(
     <div className="container" >
       <Sidebar />
-      {/* <Header /> */}
+      <Circle />
     </div >
   )
 }
