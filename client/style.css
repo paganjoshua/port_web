@@ -25,6 +25,8 @@ html, body {
   padding-bottom: 5vh;
   border-right: rgba(0, 0, 0, 0.7) solid 2px;
   text-align: end;
+  position: fixed;
+  z-index: 10;
   writing-mode: vertical-lr;
   text-orientation: upright;
 }
