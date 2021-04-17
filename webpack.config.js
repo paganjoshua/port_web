@@ -1,12 +1,9 @@
-require('dotenv').config();
 const path = require('path');
+const isDev = process.env.NODE_ENV === 'development' ? true : false;
 const MiniCSSExtractPlugin = require('mini-css-extract-plugin');
-const devMode = process.env.NODE_ENV === 'development' ? true : false;
-
-const plugins = [];
-if (devMode) {
-  plugins.push(new MiniCSSExtractPlugin());
-}
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const { HotModuleReplacementPlugin } = require('webpack');
 
 module.exports = {
   entry: './client/index.js',
@@ -16,18 +13,17 @@ module.exports = {
   },
   mode: process.env.NODE_ENV,
   devServer: {
-    contentBase: path.join(__dirname, 'client'),
+    contentBase: path.join(__dirname, 'dist'),
     compress: true,
-    port: process.env.WPDS_PORT,
-    // proxy: {
-    //   '/': `http://localhost:${process.env.DEV_PORT}`
-    // },
-    publicPath: '/dist/',
-    watchOptions: {
-      poll: 1000
-    }
+    hot: true,
+    open: true,
+    port: process.env.WPDS_PORT || 5000,
   },
-  plugins,
+  plugins: [
+    new HtmlWebpackPlugin({ template: './client/index.html', filename: 'index.html' }),
+    new CleanWebpackPlugin(),
+    isDev && new HotModuleReplacementPlugin()
+  ],
   module: {
     rules: [
       {
@@ -43,7 +39,7 @@ module.exports = {
       {
         test: /\.css$/,
         exclude: /node_modules/,
-        use: [devMode ? 'style-loader' : MiniCSSExtractPlugin.loader, 'css-loader']
+        use: [isDev ? 'style-loader' : new MiniCSSExtractPlugin.loader, 'css-loader']
       }
     ]
   }
